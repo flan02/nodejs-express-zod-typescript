@@ -6,6 +6,8 @@ npm run tsc -- --init
 # Luego las siguientes veces solo escribo
 npm run tsc
 
+# Typescript solo funciona en estatico haciendo el compilado, no funciona en runtime como javascript.
+
 # Website para ver el peso de los paquetes
 https://packagephobia.com/
 

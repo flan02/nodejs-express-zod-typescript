@@ -1,4 +1,4 @@
-// TODO express busca por defecto este archivo para leer los tipos creados con typescript
+// TODO express busca por defecto este archivo para leer los TIPOS creados con typescript
 
 export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy'
 export type Visibility = 'great' | 'good' | 'ok' | 'poor'
@@ -11,6 +11,11 @@ export interface DiaryEntry {
   visibility: Visibility
   comment?: string
 }
+
+// * ESTA INTERFAZ HEREDA DE DiaryEntry y elimina el campo comment. Forma del [pick / commit]
+export type NonSensitiveInfoDiaryEntry = Pick<DiaryEntry, 'id' | 'date' | 'weather' | 'visibility'>
+export type NonSensitiveInfoDiaryEntry2 = Omit<DiaryEntry, 'comment'>
+export type NewDiaryEntry = Omit<DiaryEntry, 'id'>
 
 //* ESTA INTERFAZ HEREDA DE DiaryEntry y agregamos un nuevo campo
 interface SpecialDiaryEntry extends DiaryEntry {
