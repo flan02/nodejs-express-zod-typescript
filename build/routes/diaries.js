@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express")); // ? ESModules
 const diaryService = __importStar(require("../services/diary"));
+const utils_1 = __importDefault(require("../utils"));
 const router = express_1.default.Router();
 router.get('/', (_req, res) => {
     res.send(diaryService.getEntriesWithoutSensitiveInfo());
@@ -37,14 +38,15 @@ router.get('/:id', (req, res) => {
     return (diary != null) ? res.send(diary) : res.sendStatus(404);
 });
 router.post('/', (req, res) => {
-    // res.send('post diary')
-    const { date, weather, visibility, comment } = req.body;
-    const newDiaryEntry = diaryService.addDiary({
-        date,
-        weather,
-        visibility,
-        comment
-    });
-    res.json(newDiaryEntry);
+    // res.send('post diary') start msg
+    try {
+        const newDiaryEntry = (0, utils_1.default)(req.body);
+        const addedDiaryEntry = diaryService.addDiary(newDiaryEntry);
+        res.json(addedDiaryEntry);
+    }
+    catch (e) {
+        const error = e;
+        res.status(400).send(error.message);
+    }
 });
 exports.default = router;

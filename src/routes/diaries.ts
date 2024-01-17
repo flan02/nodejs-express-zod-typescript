@@ -1,5 +1,6 @@
 import express from 'express' // ? ESModules
 import * as diaryService from '../services/diary'
+import toNewDiaryEntry from '../utils'
 const router = express.Router()
 
 router.get('/', (_req, res) => {
@@ -12,15 +13,15 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  // res.send('post diary')
-  const { date, weather, visibility, comment } = req.body
-  const newDiaryEntry = diaryService.addDiary({
-    date,
-    weather,
-    visibility,
-    comment
-  })
-  res.json(newDiaryEntry)
+  // res.send('post diary') start msg
+  try {
+    const newDiaryEntry = toNewDiaryEntry(req.body)
+    const addedDiaryEntry = diaryService.addDiary(newDiaryEntry)
+    res.json(addedDiaryEntry)
+  } catch (e) {
+    const error = e as Error
+    res.status(400).send(error.message)
+  }
 })
 
 export default router
