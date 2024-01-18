@@ -6,6 +6,8 @@ npm run tsc -- --init
 # Luego las siguientes veces solo escribo
 npm run tsc
 
+# Typescript solo funciona en estatico haciendo el compilado, no funciona en runtime como javascript.
+
 # Website para ver el peso de los paquetes
 https://packagephobia.com/
 
@@ -15,12 +17,11 @@ https://packagephobia.com/
 # ECMA script module obliga a poner las extensiones de los archivos
 # En typescript no es necesario poner las extensiones.
 
-# Este repo en un principio va a tener dos ramas aparte de la master con la configuracion inicial de typescript y nodejs con express para levantar un servidor basico.
+# type.d.ts para las deficiones de tipos en typescript
+# type.ts para los enums que luego los importamos en type.d.ts. Ademas los utiliza js
 
-# Veremos typescript con nodejs y express
+# Este repo en un principio va a tener la rama main con la configuracion basica de nodejs y express levantando un servidor y las API REST para un crud basico (rama midudev)
+# Luego trabajaremos con validaciones de datos, autenticacion, autorizacion, etc. Usaremos ZOD y veremos a fatzcode (rama fatzcode)
 
-## Finalmente veremos el curso de nodejs javascript de estos dos
-## Luego crearemos la rama de midudev
-## Luego la rama de jonmircha
-## Ver si fatzcode tiene algo interesante con typescript + express
+
 
