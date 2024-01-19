@@ -4,7 +4,7 @@
   "description": "Advanced concepts for nodejs with typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev --respawn src/index.ts",
     "lint": "ts-standard",
     "tsc": "tsc",
     "start": "node build/index.js",
@@ -20,12 +20,15 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "express": "4.18.2"
+    "express": "4.18.2",
+    "zod": "^3.22.4"
   },
-  "eslintConfig":{
+  "eslintConfig": {
     "parserOptions": {
       "project": "./tsconfig.json"
     },
-    "extends": ["./node_modules/ts-standard/eslintrc.json"]
+    "extends": [
+      "./node_modules/ts-standard/eslintrc.json"
+    ]
   }
 }
