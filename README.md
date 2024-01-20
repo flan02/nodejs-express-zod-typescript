@@ -16,3 +16,6 @@ Modelos para la base de datos
 
 # schemas folder
 Aqui podremos guardar nuestras validaciones de datos
+
+# middlewares folder
+Concepto de middleware (proviene de Express): Es una funcion que se ejecuta antes de que se ejecute la funcion del controller. El orden de ejecucion es Middleware, Fc. controller, acceso a la url de la API.
